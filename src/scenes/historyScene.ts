@@ -5,6 +5,24 @@ export class historyScene extends Scene {
     // Declaração do elemento texto
     elementoTexto?: HTMLElement
 
+    // Método para esmaecer um elemento HTML
+    fadeOutElement(elemento: HTMLElement) {
+        // Pegar opacidade do elemento HTML
+        let opacidade = parseFloat(elemento.style.opacity)
+
+        // Repetir diminuição da opacidade
+        setInterval(() => {
+            // Se elemento ainda está visível
+            if (opacidade > 0) {
+                // Diminuir a opacidade
+                opacidade -= 0.03
+    
+                // Atualizar a opacidade do elemento
+                elemento.style.opacity = opacidade.toString()
+            }
+        }, 20)
+    }
+
     // Ao entrar ou sair da cena, utiliza o feito transição lenta
     onTransition(direction: "in" | "out"): Transition | undefined {
         return new FadeInOut({
@@ -57,8 +75,8 @@ export class historyScene extends Scene {
         // Configurar a cena para monitorar o evento de tecla pressionada
         this.input.keyboard.on("press", (event) => {
             if (event.key == Keys.Enter) {
-                // Criar transição suave do elemento texto
-
+                // Criar transição suave do elemento texto / ? - elemento pode ser indefinido/nulo; ! - diz que o elemento não vai ser nulo
+                this.fadeOutElement(this.elementoTexto!)
 
                 // Direcionar para a próxima cena
                 engine.goToScene("gamificacao")
