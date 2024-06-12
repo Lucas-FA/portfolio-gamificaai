@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="13" nextobjectid="17">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="14" nextobjectid="22">
  <tileset firstgid="1" source="tileset_paredes.tsx"/>
  <tileset firstgid="8285" source="tileset_estoque.tsx"/>
  <tileset firstgid="9085" source="tileset_generic.tsx"/>
@@ -52,7 +52,21 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer id="6" name="Paredes" width="30" height="20" offsetx="7.5" offsety="1.25">
+ <objectgroup id="13" name="Personagens">
+  <object id="18" name="player_spawn" x="487" y="444">
+   <point/>
+  </object>
+  <object id="19" name="npc_a" x="208" y="169.5">
+   <point/>
+  </object>
+  <object id="20" name="npc_b" x="464.25" y="170.75">
+   <point/>
+  </object>
+  <object id="21" name="npc_c" x="720.75" y="172">
+   <point/>
+  </object>
+ </objectgroup>
+ <layer id="6" name="Paredes" width="30" height="20" offsetx="5.5" offsety="1.25">
   <data encoding="csv">
 0,0,4159,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4313,4162,0,0,
 0,0,4235,4388,4388,4388,4388,4388,4388,4388,4388,4388,4388,4388,4388,4388,4388,4388,4388,4388,4388,4388,4388,4388,4388,4388,4388,4238,0,0,
@@ -125,19 +139,19 @@
 </data>
  </layer>
  <objectgroup id="12" name="ObjetosColisores">
-  <object id="2" name="mesa_tenis" x="721.167" y="298.875" width="59.5" height="79.4583"/>
-  <object id="3" name="mesa_stand_c" x="683" y="176" width="75" height="36"/>
-  <object id="4" name="mesa_stand_b" x="426.75" y="175.25" width="75" height="36"/>
-  <object id="5" name="mesa_stand_a" x="170.833" y="176" width="75" height="36"/>
-  <object id="6" name="cadeira_a" x="193" y="133.667" width="29.3333" height="17"/>
-  <object id="7" name="cadeira_b" x="449.333" y="133.833" width="29.3333" height="17"/>
-  <object id="8" name="cadeira_c" x="705.333" y="133.833" width="29.3333" height="17"/>
-  <object id="9" name="arquivos_c" x="771" y="184.667" width="25.6667" height="8.66667"/>
-  <object id="10" name="arquivos_a" x="258.833" y="185.333" width="25.6667" height="8.66667"/>
-  <object id="11" name="arquivos_b" x="514.5" y="183.333" width="25.6667" height="8.66667"/>
-  <object id="13" name="planta_a" x="119.333" y="93.6667" width="17.6667" height="8"/>
-  <object id="14" name="planta_b" x="823.5" y="93.6667" width="17.6667" height="8"/>
-  <object id="15" name="televisao" x="102" y="300.5" width="16.5" height="24.5"/>
+  <object id="2" name="mesa_tenis" x="721.167" y="298.875" width="58.75" height="84.7083"/>
+  <object id="3" name="mesa_stand_c" x="683" y="181.25" width="75" height="36.25"/>
+  <object id="4" name="mesa_stand_b" x="426.75" y="181.25" width="75" height="30"/>
+  <object id="5" name="mesa_stand_a" x="170.833" y="180.75" width="75" height="31.25"/>
+  <object id="6" name="cadeira_a" x="193" y="133.667" width="29.3333" height="9.33333"/>
+  <object id="7" name="cadeira_b" x="449.333" y="133.833" width="29.3333" height="9.33333"/>
+  <object id="8" name="cadeira_c" x="705.333" y="133.833" width="29.3333" height="9"/>
+  <object id="9" name="arquivos_c" x="771" y="184.667" width="25.6667" height="26.6667"/>
+  <object id="10" name="arquivos_a" x="258.833" y="185.333" width="25.6667" height="25.9167"/>
+  <object id="11" name="arquivos_b" x="514.5" y="183.333" width="25.6667" height="27.6667"/>
+  <object id="13" name="planta_a" x="119.333" y="93.6667" width="17.6667" height="15.75"/>
+  <object id="14" name="planta_b" x="823.5" y="93.6667" width="17.6667" height="16"/>
+  <object id="15" name="televisao" x="102" y="300.5" width="16.5" height="43"/>
  </objectgroup>
  <layer id="11" name="Teto" width="30" height="20">
   <data encoding="csv">
