@@ -7,6 +7,9 @@ import logoVertical from "./images/logo-vertical.png"
 import gamificacao from "./images/banner-asset-gamificacao.png"
 
 import playerSpriteSheet from "./sprites/player.png"
+import npcASpriteSheet from "./sprites/npca.png"
+import npcBSpriteSheet from "./sprites/npcb.png"
+import npcCSpriteSheet from "./sprites/npcc.png"
 
 import pngTilesetPath from "./maps/Room_Builder_32x32.png?url"
 
@@ -23,6 +26,9 @@ export const Resources = {
   LogoVertical: new ImageSource(logoVertical),
   Gamificacao: new ImageSource(gamificacao),
   PlayerSpriteSheet: new ImageSource(playerSpriteSheet, {filtering: ImageFiltering.Pixel}),
+  NpcASpriteSheet: new ImageSource(npcASpriteSheet, {filtering: ImageFiltering.Pixel}),
+  NpcBSpriteSheet: new ImageSource(npcBSpriteSheet, {filtering: ImageFiltering.Pixel}),
+  NpcCSpriteSheet: new ImageSource(npcCSpriteSheet, {filtering: ImageFiltering.Pixel}),
   Mapa: new TiledResource(tmxMapaPath, {
 	pathMap: [
 		{path: "showroom_map.tmx", output: tmxMapaPath},
