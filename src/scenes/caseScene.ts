@@ -1,8 +1,12 @@
-import { Color, Engine, FadeInOut, Scene, SceneActivationContext, Transition } from "excalibur";
+import { Actor, Color, Engine, FadeInOut, Keys, Scene, SceneActivationContext, Sprite, Transition, vec } from "excalibur";
+import { Resources } from "../resources";
 
 export class caseScene extends Scene {
     private objetoInteracao: any
-    private textoDoCase: string
+    private elementoTexto?: HTMLElement
+    private actorEmpresa?: Actor
+
+    private listaImagens?: Sprite[]
 
     // Ao entrar ou sair da cena, utiliza o feito transição lenta
     onTransition(direction: "in" | "out"): Transition | undefined {
@@ -15,6 +19,33 @@ export class caseScene extends Scene {
 
     onInitialize(engine: Engine<any>): void {
         this.backgroundColor = Color.Gray
+
+        // Criar um elemento com a descrição do case
+        this.elementoTexto = document.createElement("div") as HTMLElement
+        this.elementoTexto.classList.add("texto-case")
+
+        // Adicionar o elemento ao container game
+        let containerGame = document.querySelector(".container-game")
+        containerGame?.appendChild(this.elementoTexto)
+
+        // Ao pressionar Esc voltar para a exposição
+        this.input.keyboard.on("press", (event) => {
+            if(event.key == Keys.Esc) {
+                engine.goToScene("exposicao")
+            }
+        })
+
+        // Criar actor para receber a imagem
+        this.actorEmpresa = new Actor ({
+            pos: vec(engine.drawWidth - 300, engine.drawHeight - 50)
+        })
+
+        // Carregar imagens das empresas 
+        let imagemEmpresaXYZ = Resources.Sword.toSprite()
+        let imagemEmpresaABC = Resources.Sword.toSprite()
+        let imagemEmpresaFastMart = Resources.Sword.toSprite()
+
+        this.listaImagens = [imagemEmpresaXYZ, imagemEmpresaABC, imagemEmpresaFastMart]
     }
 
     onActivate(context: SceneActivationContext<unknown>): void {
@@ -25,17 +56,49 @@ export class caseScene extends Scene {
 
         // Se for a mesa a
         if(this.objetoInteracao.nomeDoActor == "mesa_stand_a") {
-            this.textoDaCena = "Essa é a descrição do case A"
+            // Mesa A detectado
+            this.elementoTexto!.innerHTML = `<h2>XYZ Tech</h2>
+            <p></p>
+            <p></p>`
+
+            // Inserir o sprite ao actor da mesa A
+            this.actorEmpresa?.graphics.add(this.listaImagens![0])
+
+            // Mudar o zoom da imagem
+            this.actorEmpresa!.graphics.current!.scale = vec(0.2, 0.2)
         }
 
         // Se for a mesa b
         if(this.objetoInteracao.nomeDoActor == "mesa_stand_b") {
-            this.textoDaCena = "Essa é a descrição do case B"
+            // Mesa B detectado
+            this.elementoTexto!.innerHTML = `<h2>ABC Finance</h2>
+            <p></p>
+            <p></p>`
+
+            // Inserir o sprite ao actor da mesa A
+            this.actorEmpresa?.graphics.add(this.listaImagens![1])
+
+            // Mudar o zoom da imagem
+            this.actorEmpresa!.graphics.current!.scale = vec(0.2, 0.2)
         }
 
         // Se for a mesa c
         if(this.objetoInteracao.nomeDoActor == "mesa_stand_c") {
-            this.textoDaCena = "Essa é a descrição do case C"
+            // Mesa C detectado
+            this.elementoTexto!.innerHTML = `<h2>FastMart</h2>
+            <p></p>
+            <p></p>`
+
+            // Inserir o sprite ao actor da mesa A
+            this.actorEmpresa?.graphics.add(this.listaImagens![2])
+
+            // Mudar o zoom da imagem
+            this.actorEmpresa!.graphics.current!.scale = vec(0.2, 0.2)
         }
+    }
+
+    onDeactivate(context: SceneActivationContext<undefined>): void {
+        // Faz a caixa de texto desaparecer ao mudar de cena
+        this.elementoTexto!.style.opacity = "0"
     }
 }
