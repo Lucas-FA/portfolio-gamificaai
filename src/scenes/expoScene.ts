@@ -17,6 +17,13 @@ export class expoScene extends Scene {
         // Ativar o modo de debug
         engine.toggleDebug()
 
+        // Carregar musica de fundo (BGM) - Background Music
+        let musicaFundo = Resources.RitmadaBGM
+        
+        // Configurar a musica e executar
+        musicaFundo.loop = true
+        // musicaFundo.play(0.5)
+
         // Carregar o mapa
         let tiledMap = Resources.Mapa
 
@@ -52,20 +59,17 @@ export class expoScene extends Scene {
         // Configurar NPC
         let npcA = new npc (
             vec(npcSpawnPointA.x + offsetX, npcSpawnPointA.y + offsetY),
-            Color.Blue,
-            "NpcA"
+            npcSpawnPointA.tiledObject.name!
         )
 
         let npcB = new npc (
             vec(npcSpawnPointB.x + offsetX, npcSpawnPointB.y + offsetY),
-            Color.Chartreuse,
-            "NpcB"
+            npcSpawnPointB.tiledObject.name!
         )
 
         let npcC = new npc (
             vec(npcSpawnPointC.x + offsetX, npcSpawnPointC.y + offsetY),
-            Color.Yellow,
-            "NpcC"
+            npcSpawnPointC.tiledObject.name!
         )
         
         // Adicionar os NPCs
@@ -75,10 +79,13 @@ export class expoScene extends Scene {
 
         // Focar a camera no Player
         this.camera.strategy.lockToActor(jogador)
+        // this.camera.zoom = 2
 
         // Adicionar colisão com cada objeto
         // Pegar a camada de objetos colisores, como retorna um array, seleciona só o primeiro
         let camadaObjetosColisores = tiledMap.getObjectLayers("ObjetosColisores")[0]
+
+        console.log(camadaObjetosColisores);
 
         // Percorrer os objetos com foreach e para cada objeto, renderizar um actor
         camadaObjetosColisores.objects.forEach(objeto => {
@@ -91,7 +98,7 @@ export class expoScene extends Scene {
                 height: objeto.tiledObject.height,
                 collisionType: CollisionType.Fixed,
                 //color: Color.Red
-                
+                // z: 99
             })
 
             // Adicionar o colisor do objeto na cena
