@@ -14,6 +14,10 @@ import npcCSpriteSheet from "./sprites/npcc.png"
 import ritmada from "./sounds/ritmada_zelda.mp3";
 import classico from "./sounds/zelda.mp3"
 
+import logoFast from "./images/fastmart.png"
+import logoXYZ from "./images/logoxyz.png"
+import logoABC from "./images/logoabcfinance.png"
+
 import pngTilesetPath from "./maps/Room_Builder_32x32.png?url"
 
 import tsxParedesPath from "./maps/tileset_paredes.tsx?url"
@@ -34,6 +38,9 @@ export const Resources = {
   NpcCSpriteSheet: new ImageSource(npcCSpriteSheet, {filtering: ImageFiltering.Pixel}),
   RitmadaBGM: new Sound(ritmada),
   ClassicBGM: new Sound(classico),
+  LogoFastMart: new ImageSource(logoFast),
+  LogoXYZ: new ImageSource(logoXYZ),
+  LogoABC: new ImageSource(logoABC),
   Mapa: new TiledResource(tmxMapaPath, {
 	pathMap: [
 		{path: "showroom_map.tmx", output: tmxMapaPath},

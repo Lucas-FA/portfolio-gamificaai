@@ -41,9 +41,9 @@ export class caseScene extends Scene {
         })
 
         // Carregar imagens das empresas 
-        let imagemEmpresaXYZ = Resources.Sword.toSprite()
-        let imagemEmpresaABC = Resources.Sword.toSprite()
-        let imagemEmpresaFastMart = Resources.Sword.toSprite()
+        let imagemEmpresaXYZ = Resources.LogoXYZ.toSprite()
+        let imagemEmpresaABC = Resources.LogoABC.toSprite()
+        let imagemEmpresaFastMart = Resources.LogoFastMart.toSprite()
 
         this.listaImagens = [imagemEmpresaXYZ, imagemEmpresaABC, imagemEmpresaFastMart]
     }
@@ -72,8 +72,8 @@ export class caseScene extends Scene {
         if(this.objetoInteracao.nomeDoActor == "mesa_stand_b") {
             // Mesa B detectado
             this.elementoTexto!.innerHTML = `<h2>ABC Finance - Incentivo à Cultura de Inovação</h2>
-            <p>A empresa queria incentivar os funcionários a proporem ideias inovadoras para melhorar processos e produtos, mas havia pouca participação.
-            <p>ABC Finance criou um programa chamado "InovaABC" onde os funcionários podiam submeter ideias e ganhar pontos. As ideias eram votadas pelos colegas e avaliadas por um comitê. Os funcionários com as melhores ideias ganhavam prêmios e reconhecimento trimestral.`
+            <p>A empresa queria incentivar os funcionários a proporem ideias inovadoras para melhorar processos e produtos, mas havia pouca participação.</p>
+            <p>ABC Finance criou um programa chamado "InovaABC" onde os funcionários podiam submeter ideias e ganhar pontos. As ideias eram votadas pelos colegas e avaliadas por um comitê. Os funcionários com as melhores ideias ganhavam prêmios e reconhecimento trimestral.</p>`
 
             // Inserir o sprite ao actor da mesa A
             this.actorEmpresa?.graphics.add(this.listaImagens![1])
@@ -86,8 +86,8 @@ export class caseScene extends Scene {
         if(this.objetoInteracao.nomeDoActor == "mesa_stand_c") {
             // Mesa C detectado
             this.elementoTexto!.innerHTML = `<h2>FastMart - Melhoria na Experiência do Cliente</h2>
-            <p>A empresa de varejo enfrentava problemas com o atendimento ao cliente, resultando em baixa satisfação e retenção de clientes.
-            <p>FastMart lançou uma aplicação interna onde os atendentes ganhavam pontos ao fornecer um excelente atendimento ao cliente, baseado em avaliações dos próprios clientes e supervisores. Os melhores atendentes eram destacados no mural da empresa e recebiam recompensas.`
+            <p>A empresa de varejo enfrentava problemas com o atendimento ao cliente, resultando em baixa satisfação e retenção de clientes.</p>
+            <p>FastMart lançou uma aplicação interna onde os atendentes ganhavam pontos ao fornecer um excelente atendimento ao cliente, baseado em avaliações dos próprios clientes e supervisores. Os melhores atendentes eram destacados no mural da empresa e recebiam recompensas.</p>`
 
             // Inserir o sprite ao actor da mesa A
             this.actorEmpresa?.graphics.add(this.listaImagens![2])
